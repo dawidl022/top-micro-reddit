@@ -1,7 +1,8 @@
 class Post < ApplicationRecord
   belongs_to :user
-  validates_presence_of :title, :user_id
+  has_many :comments
 
+  validates_presence_of :title, :user_id
   validate :url_or_body_present
 
   def url_or_body_present
